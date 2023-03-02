@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form id="addForm">
+        <!-- This is the form that is used to add a new book to "Books to Read" 
+        By default it is set to "display: none", but calling the "openAddForm()"
+        function sets its display property to flex.
+        -->
+        <input id="form-x" class="x" type="button" value="X" onclick="closeAddForm()">
+
+        <input id="enter-title" placeholder="Title" type="text">
+        <input id="enter-author" placeholder="Author" type="text">
+        <div>
+            <input id="enter-pages-read" placeholder="Pages read" type="number">/
+            <input id="enter-total-pages" placeholder="Total pages" type="number">
+        </div>
+
+        <input type="submit" onclick="addBookToLibrary()">
+    </form>
+
+    <form id="pageForm">
+        <!-- Using this form you can update the page number you're on or delete the book -->
+        <button class="delete"><i class="fa fa-trash"></i></button>
+        <input id="form-x" class="x" type="button" value="X" onclick="closePageForm()">
+        <input id="updated-page" type="number" placeholder="What page are you on?">
+        <input type="submit">
+    </form>
+
+    <h2>Books to Read</h2>
+
+    <ul id="directory"><!-- Books to Read -->
+        <li class="plus" onclick="openAddForm()">
+            <p>+</p>
+        </li>
+        <li class="book" data-index="0" onclick="openPageForm(0)">
+            <h4>Harry Potter and The Sorcerer's Stone</h4>
+            <p>J. K. Rowling</p>
+            <div class="progress-bar" style="width: 31.25%;"></div>
+        </li>
+        <li class="book" data-index="1" onclick="openPageForm(1)">
+            <h4>The Catcher in the Rye</h4>
+            <p>J. D. Salinger</p>
+            <div class="progress-bar" style="width: 34.188%;"></div>
+        </li>
+    </ul>
+
+    <hr>
+    <h2>Books You've Finished</h2>
+    <ul id="finished">
+        <!-- when a book is finished the "finishedBook(index)" function will
+        be called and that book element will be moved here. -->
+    </ul>
+    <script src="main.js"></script>
+</body>
+
+</html>
